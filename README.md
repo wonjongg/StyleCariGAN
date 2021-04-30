@@ -1,6 +1,6 @@
 # StyleCariGAN in PyTorch
 
-Implementation of StyleCariGAN:Caricature Generation via StyleGAN Feature Map Modulation in PyTorch
+Official implementation of StyleCariGAN:Caricature Generation via StyleGAN Feature Map Modulation in PyTorch
 
 ## Requirements
 

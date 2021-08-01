@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="css/carousel.css" type="text/css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+  </head>
+  <body>
+
+    <section class="section" id="Overview-Video">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-two-thirds">
+            <figure class="image is-16by9">
+              <a href="https://arxiv.org/abs/2107.04331"><img src="images/StyleCariGAN.png" alt="Teaser"></a>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Start Hero -->
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-body">
+
+          <div class="level">
+            <h1 class="title level-item has-text-centered">StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation</h1>
+          </div>
+
+          <!-- Authors -->
+          <div class="columns" id="authors">
+            <div class="column has-text-centered">
+              <a href="https://wonjongg.github.io"><h2 class="subtitle"><nobr>Wonjong Jang</nobr></h2></a>
+            </div>
+            <div class="column has-text-centered">
+              <a href="https://cg.postech.ac.kr"><h2 class="subtitle"><nobr>Gwangjin Ju</nobr></h2></a>
+            </div>
+            <div class="column has-text-centered">
+              <a href="https://yucheol.info"><h2 class="subtitle"><nobr>Yucheol Jung</nobr></h2></a>
+            </div>
+          </div>
+          <div class="columns" id="authors">
+            <div class="column has-text-centered">
+              <a href="https://jlyang.org/"><h2 class="subtitle"><nobr>Jiaolong Yang</nobr></h2></a>
+            </div>
+            <div class="column has-text-centered">
+              <a href="https://www.microsoft.com/en-us/research/people/xtong/"><h2 class="subtitle"><nobr>Xin Tong</nobr></h2></a>
+            </div>
+            <div class="column has-text-centered">
+              <a href="https://cg.postech.ac.kr"><h2 class="subtitle"><nobr>Seungyong Lee</nobr></h2></a>
+            </div>
+          </div>
+          <!-- End of Authors -->
+
+          <div class="columns">
+            <div class="column has-text-centered">
+              <a href="https://s2021.siggraph.org/" class="subtitle is-4">SIGGRAPH 2021</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Links -->
+        <div class="hero-foot">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="columns is-variable is-8">
+                <div class="column has-text-centered">
+                  <figure class="image is-64x64 container">
+                    <a href="https://arxiv.org/abs/2107.04331"><img src="images/paper_thumbnail.png" alt="Paper"></a>
+                  </figure><br>
+                  <p><a href="https://arxiv.org/abs/2107.04331">Paper</a></p>
+                </div>
+                <div class="column has-text-centered">
+                  <figure class="image is-64x64 container">
+                    <a href="https://github.com/wonjongg/StyleCariGAN"><img src="images/github_thumbnail.png" alt="github"></a>
+                  </figure><br>
+                  <p><a href="https://github.com/wonjongg/StyleCariGAN">Code</a></p>
+                </div>
+                <div class="column has-text-centered">
+                  <figure class="image is-64x64 container">
+                    <a href="http://cg.postech.ac.kr/papers/2021_StyleCariGAN_supp.zip"><img src="images/supdoc_thumbnail.png" alt="Supplementary"></a>
+                  </figure><br>
+                  <p><a href="http://cg.postech.ac.kr/papers/2021_StyleCariGAN_supp.zip">Supplementary</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Links -->
+
+      </div>
+      <!-- End of Container -->
+
+    </section>
+
+
+    <section class="section" id="Abstract">
+      <div class="container content">
+        <div class="columns is-centered">
+          <div class="column is-two-thirds has-text-justified">
+            <h2 class="title is-3">Abstract</h2>
+
+            <p>
+We present a caricature generation framework based on shape and style manipulation using StyleGAN. Our framework, dubbed StyleCariGAN, automatically creates a realistic and detailed caricature from an input photo with optional controls on shape exaggeration degree and color stylization type. The key component of our method is shape exaggeration blocks that are used for modulating coarse layer feature maps of StyleGAN to produce desirable caricature shape exaggerations. We first build a layer-mixed StyleGAN for photo-to-caricature style conversion by swapping fine layers of the StyleGAN for photos to the corresponding layers of the StyleGAN trained to generate caricatures. Given an input photo, the layer-mixed model produces detailed color stylization for a caricature but without shape exaggerations. We then append shape exaggeration blocks to the coarse layers of the layer-mixed model and train the blocks to create shape exaggerations while preserving the characteristic appearances of the input. Experimental results show that our StyleCariGAN generates realistic and detailed caricatures compared to the current state-of-the-art methods. We demonstrate StyleCariGAN also supports other StyleGAN-based image manipulations, such as facial expression control.           </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container content">
+        <div class="columns is-centered">
+          <div class="column is-two-thirds has-text-justified">
+            <h2 class="titile">BibTeX</h2>
+              <pre><code>@article{Jang2021StyleCari,
+  author    = {Wonjong Jang and Gwangjin Ju and Yucheol Jung and Jiaolong Yang and Xin Tong and Seungyong Lee},
+  title     = {StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation},
+  booktitle = {ACM Transactions on Graphics (Proceedings of ACM SIGGRAPH)},
+  publisher = {ACM},
+  volume = {40},
+  number = {4},
+  year = {2021}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+  </body>
+</html>

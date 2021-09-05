@@ -12,12 +12,19 @@ from torch.utils import data
 from torchvision import transforms, utils
 from tqdm import tqdm
 
+try:
+    import wandb
+
+except ImportError:
+    wandb = None
+
 from facenet_pytorch import InceptionResnetV1
 
 from distributed import (get_rank, get_world_size, reduce_loss_dict,
                          reduce_sum, synchronize)
 from exaggeration_model import StyleCariGAN
 from model import Discriminator, Discriminator_feat, ResNet18
+from non_leaking import augment
 
 
 # override requires_grad function
@@ -142,6 +149,10 @@ def train(args, generator, discriminator_photo, discriminator_cari,
         d_module_feat_c = discriminator_feat_c
 
     accum = 0.5**(32 / (10 * 1000))
+    ada_augment = torch.tensor([0.0, 0.0], device=device)
+    ada_aug_p = args.augment_p if args.augment_p > 0 else 0.0
+    ada_aug_step = args.ada_target / args.ada_length
+    r_t_stat = 0
 
     sample_z = torch.randn(args.n_sample, args.latent, device=device)
 
@@ -193,7 +204,6 @@ def train(args, generator, discriminator_photo, discriminator_cari,
              0 * real_pred[0]).backward()
 
             d_optim_fc.step()
-
         '''
         Discriminator for feat photo
         '''
@@ -234,7 +244,6 @@ def train(args, generator, discriminator_photo, discriminator_cari,
              0 * real_pred[0]).backward()
 
             d_optim_fp.step()
-
         '''
         Discriminator for cari
         '''
@@ -278,9 +287,8 @@ def train(args, generator, discriminator_photo, discriminator_cari,
              0 * real_pred[0]).backward()
 
             d_optim_c.step()
-
         '''
-        Discriminator for photo
+        Discriminator for photo 
         '''
         requires_grad(generator, False)
         requires_grad(discriminator_photo, True)
@@ -412,7 +420,23 @@ def train(args, generator, discriminator_photo, discriminator_cari,
         if get_rank() == 0:
             pbar.set_description((
                 f"d_p: {d_loss_p_val:.4f}; d_c: {d_loss_c_val:.4f}; g: {gan_loss_val:.4f}, {cyc_loss_val:.4f}, {feat_loss_val:.4f}, {attr_loss_val:.4f}, {idt_loss_val:.4f}; r1: {r1_val:.4f}; "
-                ))
+                f"augment: {ada_aug_p:.4f}"))
+
+            if wandb and args.wandb:
+                wandb.log({
+                    "Generator_gan": gan_loss_val,
+                    "Generator_idt": idt_loss_val,
+                    "Generator_attr": attr_loss_val,
+                    "Discriminator_p": d_loss_p_val,
+                    "Discriminator_c": d_loss_c_val,
+                    "Augment": ada_aug_p,
+                    "Rt": r_t_stat,
+                    "R1": r1_val,
+                    "Real Score_p": real_score_p_val,
+                    "Fake Score_p": fake_score_p_val,
+                    "Real Score_c": real_score_c_val,
+                    "Fake Score_c": fake_score_c_val,
+                })
 
             if i % 100 == 0:
                 with torch.no_grad():
@@ -468,6 +492,7 @@ def train(args, generator, discriminator_photo, discriminator_cari,
                         "d_optim_fp": d_optim_fp.state_dict(),
                         "d_optim_fc": d_optim_fc.state_dict(),
                         "args": args,
+                        "ada_aug_p": ada_aug_p,
                     },
                     f"checkpoint/{args.name}/{str(i).zfill(6)}.pt",
                 )
@@ -509,7 +534,12 @@ if __name__ == "__main__":
                         help='cari attr classifier checkpoint')
     parser.add_argument("--lr", type=float, default=0.002)
     parser.add_argument("--channel_multiplier", type=int, default=2)
+    parser.add_argument("--wandb", action="store_true")
     parser.add_argument("--local_rank", type=int, default=0)
+    parser.add_argument("--augment", action="store_true")
+    parser.add_argument("--augment_p", type=float, default=0)
+    parser.add_argument("--ada_target", type=float, default=0.6)
+    parser.add_argument("--ada_length", type=int, default=500 * 1000)
     parser.add_argument('--feature_loc',
                         type=int,
                         default=3,
@@ -627,9 +657,8 @@ if __name__ == "__main__":
         d_optim_c.load_state_dict(ckpt["d_optim_c"])
         d_optim_fp.load_state_dict(ckpt["d_optim_fp"])
         d_optim_fc.load_state_dict(ckpt["d_optim_fc"])
-    '''
-    Attribute classifier
-    '''
+
+    ### Attribute classifier ###
     c_cls = ResNet18().to(device)
     p_cls = ResNet18().to(device)
 
@@ -694,6 +723,8 @@ if __name__ == "__main__":
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5), inplace=True),
     ])
 
+    if get_rank() == 0 and wandb is not None and args.wandb:
+        wandb.init(project="stylegan 2")
 
     train(args, generator, discriminator_photo, discriminator_cari,
           discriminator_feat_p, discriminator_feat_c, g_optim, d_optim_p,

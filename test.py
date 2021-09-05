@@ -10,6 +10,8 @@ from torchvision import utils
 from invert import *
 from exaggeration_model import StyleCariGAN 
 
+from align import ImageAlign
+
 @torch.no_grad()
 def generate(
     generator, truncation, truncation_latent, inversion_file, styles, device
@@ -41,7 +43,7 @@ def generate(
 if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else 'cpu'
 
-    parser = argparse.ArgumentParser(description="Calculate FID scores")
+    parser = argparse.ArgumentParser(description="Generate caricatures from user input images")
 
     parser.add_argument("--truncation", type=float, default=1, help="truncation factor")
     parser.add_argument("--truncation_mean", type=int, default=4096, help="number of samples to calculate mean for truncation")
@@ -61,7 +63,6 @@ if __name__ == "__main__":
     parser.add_argument("--lambda_noise", type=float, default=1e5)
     parser.add_argument("--wlr", type=float, default=4e-3)
     parser.add_argument("--lr_decay_rate", type=float, default=0.2)
-    parser.add_argument("--result_dir", type=str, default='./invert_result')
     parser.add_argument("--save", action='store_true')
 
     args = parser.parse_args()
@@ -89,6 +90,8 @@ if __name__ == "__main__":
         mean_latent = None
 
     if args.invert_images:
+        align = ImageAlign()
+
         perceptual = perceptual_module().to(device)
         perceptual.eval()
         transform = transforms.Compose([
@@ -111,7 +114,8 @@ if __name__ == "__main__":
                 args.result_dir = args.input_dir
                 args.image_name = fn.split('.')[0]
                 args.image = os.path.join(args.input_dir, fn)
-                photo = transform(Image.open(args.image).convert('RGB')).unsqueeze(0).to(device)
+                aligned_image = align(args.image)
+                photo = transform(aligned_image).unsqueeze(0).to(device)
                 args.image_name = args.image.split('/')[-1].split('.')[0]
                 invert(g_ema.photo_generator, perceptual, photo, device, args)
 

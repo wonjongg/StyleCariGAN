@@ -1,19 +1,17 @@
-from io import BytesIO
-
 import os
+
 from PIL import Image
 from torch.utils.data import Dataset
 
 
 class WebCariDataset(Dataset):
-    def __init__(self, path, transform, resolution=8):
+    def __init__(self, path, transform):
         self.photo_list = self.load_photo_path(path)
         self.cari_list = self.load_cari_path(path)
 
         self.length1 = len(self.photo_list)
         self.length2 = len(self.cari_list)
 
-        self.resolution = resolution
         self.transform = transform
 
     def load_cari_path(self, path):
@@ -41,11 +39,8 @@ class WebCariDataset(Dataset):
 
     def __getitem__(self, index):
         idx = index % self.length1
-
         photo = self.transform(Image.open(self.photo_list[idx]).convert('RGB'))
-
         idx = index % self.length2
-
         cari = self.transform(Image.open(self.cari_list[idx]).convert('RGB'))
 
         return index, photo, cari

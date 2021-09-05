@@ -41,6 +41,11 @@ We provide some sample images. Test on sample images:
 
 It inverts latent codes from input photos and generates caricatures from latent codes.
 
+|Input image|Output caricature|
+|:-:|:-:|
+|![First Image](./examples/samples/1.png)|![Second Image](./examples/results/1/6.png)|
+
+
 ### Citation
 If you find this code useful, please consider citing:
 ```

@@ -48,7 +48,7 @@ It inverts latent codes from input photos and generates caricatures from latent 
 |![img3](./examples/samples/4.png)|![cari3](./examples/results/4/15.png)|
 
 
-### Citation
+## Citation
 If you find this code useful, please consider citing:
 ```
 @article{Jang2021StyleCari,
@@ -63,11 +63,11 @@ If you find this code useful, please consider citing:
 ```
 
 
-### Contact
+## Contact
 You can have contact with [wonjong@postech.ac.kr](mailto:wonjong@postech.ac.kr) or [ycjung@postech.ac.kr](mailto:ycjung@postech.ac.kr)
 
 
-### License
+## License
 This software is being made available under the terms in the [LICENSE](LICENSE) file.
 
 Any exemptions to these terms requrie a licens from the Pohang University of Science and Technology.

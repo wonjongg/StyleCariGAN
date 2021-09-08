@@ -19,6 +19,8 @@ This repository contains the official PyTorch implementation of the following pa
 * requests 2.23.0
 * tqdm 4.46.2
 
+If you are using Anaconda environment and get errors regarding compiler version mismatch, check issue [#1](/../../issues/1).
+
 ## Usage
 
 First download pre-trained model weights:

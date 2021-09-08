@@ -13,9 +13,11 @@ This repository contains the official PyTorch implementation of the following pa
 ## Requirements
 
 * PyTorch 1.3.1
+* torchvision 0.4.2
 * CUDA 10.1/10.2
-* dlib 19.22.1
+* dlib 19.22.0
 * requests 2.23.0
+* tqdm 4.46.2
 
 ## Usage
 

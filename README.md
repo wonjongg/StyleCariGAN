@@ -10,6 +10,8 @@ This repository contains the official PyTorch implementation of the following pa
 > **[StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation](https://arxiv.org/abs/2107.04331)**<br>
 > Wonjong Jang, Gwangjin Ju, Yucheol Jung, Jiaolong Yang, Xin Tong, Seungyong Lee, SIGGRAPH 2021
 
+[Run it on Replicate](https://replicate.ai/wonjongg/stylecarigan)
+
 ## Requirements
 
 * PyTorch 1.3.1

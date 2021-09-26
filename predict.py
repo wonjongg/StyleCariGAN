@@ -3,6 +3,8 @@ import tempfile
 import argparse
 from pathlib import Path
 import glob
+import math
+import random
 import shutil
 import numpy as np
 import torch
@@ -83,9 +85,11 @@ class Predictor(cog.Predictor):
         self.args.mean_w = w.mean(dim=0)
 
     @cog.input("image", type=Path, help="Input image, only supports images with .png and .jpg extensions")
+    @cog.input("num_samples", type=int, options=[1, 4, 9], default=1,
+               help="Valid when output_type is png. Choose number of samples to view in a grid")
     @cog.input("output_type", type=str, options=['png', 'zip'], default='png',
-               help="Output a png file with 64 samples in a 8x8 grid, or a zip file with 64 images")
-    def predict(self, image, output_type='png'):
+               help="Output a png file with num_samples in a grid, or a zip file with all 64 samples")
+    def predict(self, image, output_type='png', num_samples=1):
         # set input folder
         assert str(image).split('.')[-1] in ['png', 'jpg'], 'image should end with ".jpg" or ".png"'
         input_dir = 'input_cog_temp'
@@ -118,7 +122,10 @@ class Predictor(cog.Predictor):
                     zip.write(img)
         else:
             out_path = Path(tempfile.mkdtemp()) / "out.png"
-            image_grid = save_image_grid(8, img_list)
+            ran_idx = random.sample(range(0, 64), num_samples)
+            # ran_idx = random.randint(0, 63)
+            selected_img_list = [img_list[i] for i in ran_idx]
+            image_grid = save_image_grid(int(math.sqrt(num_samples)), selected_img_list)
             cv2.imwrite(str(out_path), image_grid)
         clean_folder(input_dir)
         clean_folder(self.args.output_dir)

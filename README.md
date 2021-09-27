@@ -1,5 +1,5 @@
 # StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation
-![License CC BY_NC](https://img.shields.io/badge/license-GNU_AGPv3-blue.svg?style=plastic)
+![License CC BY_NC](https://img.shields.io/badge/license-GNU_AGPv3-blue.svg?style=plastic) <a href="https://replicate.ai/wonjongg/stylecarigan"><img src="https://img.shields.io/static/v1?label=Replicate&message=Run it on Replicate&color=blue" height=18></a>
 
 <p align="center">
    <img src="./assets/teaser.png" />
@@ -10,7 +10,7 @@ This repository contains the official PyTorch implementation of the following pa
 > **[StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation](https://arxiv.org/abs/2107.04331)**<br>
 > Wonjong Jang, Gwangjin Ju, Yucheol Jung, Jiaolong Yang, Xin Tong, Seungyong Lee, SIGGRAPH 2021
 
-<a href="https://replicate.ai/wonjongg/stylecarigan"><img src="https://img.shields.io/static/v1?label=Replicate&message=Run it on Replicate&color=blue" height=22.5></a>
+
 
 ## Requirements
 
@@ -78,4 +78,5 @@ This software is being made available under the terms in the [LICENSE](LICENSE) 
 
 Any exemptions to these terms requrie a licens from the Pohang University of Science and Technology.
 
-
+## Acknowledgements
+Specially thanks to [CJWBW](https://github.com/CJWBW) who makes our project run on [website](https://replicate.ai/wonjongg/stylecarigan).

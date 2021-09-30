@@ -46,6 +46,9 @@ We provide some sample images. Test on sample images:
 
 It inverts latent codes from input photos and generates caricatures from latent codes.
 
+## Examples
+<div align="center">
+  
 |Input image|Output caricature|
 |:-:|:-:|
 |![img1](./examples/samples/2.png)|![cari1](./examples/results/2/23.png)|
@@ -53,7 +56,7 @@ It inverts latent codes from input photos and generates caricatures from latent 
 |![img3](./examples/samples/4.png)|![cari3](./examples/results/4/15.png)|
 |![img4](./examples/samples/5.png)|![cari4](./examples/results/5/52.png)|
 
-
+</div>
 
 ## Citation
 If you find this code useful, please consider citing:

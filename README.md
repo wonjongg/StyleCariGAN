@@ -83,4 +83,4 @@ This software is being made available under the terms in the [LICENSE](LICENSE) 
 Any exemptions to these terms requrie a licens from the Pohang University of Science and Technology.
 
 ## Acknowledgements
-Specia thanks to [CJWBW](https://github.com/CJWBW) who ported our project to [website](https://replicate.ai/wonjongg/stylecarigan).
+Specia thanks to [CJWBW](https://github.com/CJWBW) who ported our project to [Replicate](https://replicate.ai/wonjongg/stylecarigan).

@@ -3,24 +3,24 @@
 
 [![teaser](./assets/teaser.png)](https://youtu.be/kpHbGOlI-BU)
 
-This repository contains the official PyTorch implementation of the following paper:
+📝 This repository contains the official PyTorch implementation of the following paper:
 
 > **[StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation](https://arxiv.org/abs/2107.04331)**<br>
 > Wonjong Jang, Gwangjin Ju, Yucheol Jung, Jiaolong Yang, Xin Tong, Seungyong Lee, SIGGRAPH 2021
 
-[[Project page]](https://wonjongg.github.io/StyleCariGAN) [[Fast-forward video]](https://youtu.be/kpHbGOlI-BU)
+🚀 >> [Project page](https://wonjongg.github.io/StyleCariGAN)  
+🚀 >> [Fast-forward video](https://youtu.be/kpHbGOlI-BU)
 
 
 ## Requirements
+✔️ PyTorch 1.3.1  
+✔️ torchvision 0.4.2  
+✔️ CUDA 10.1/10.2  
+✔️ dlib 19.22.0  
+✔️ requests 2.23.0  
+✔️ tqdm 4.46.2
 
-* PyTorch 1.3.1
-* torchvision 0.4.2
-* CUDA 10.1/10.2
-* dlib 19.22.0
-* requests 2.23.0
-* tqdm 4.46.2
-
-If you are using Anaconda environment and get errors regarding compiler version mismatch, check issue [#1](/../../issues/1).
+⚠️ If you are using Anaconda environment and get errors regarding compiler version mismatch, check issue [#1](/../../issues/1).
 
 ## Usage
 
@@ -72,15 +72,19 @@ If you find this code useful, please consider citing:
 }
 ```
 
+## Pre-trained models
+
+🏷️ [StyleCariGAN](https://www.dropbox.com/s/ryc7v1ghsm54mr8/001000.pt?dl=0)
+
+🏷️ [Caricature-StyleGAN](https://www.dropbox.com/s/8ycqr0sy8zah6h5/120000.pt?dl=0)
 
 ## Contact
-You can have contact with [wonjong@postech.ac.kr](mailto:wonjong@postech.ac.kr) or [ycjung@postech.ac.kr](mailto:ycjung@postech.ac.kr)
-
+📫 You can have contact with [wonjong@postech.ac.kr](mailto:wonjong@postech.ac.kr) or [ycjung@postech.ac.kr](mailto:ycjung@postech.ac.kr)
 
 ## License
 This software is being made available under the terms in the [LICENSE](LICENSE) file.
 
-Any exemptions to these terms requrie a licens from the Pohang University of Science and Technology.
+Any exemptions to these terms require a license from the Pohang University of Science and Technology.
 
 ## Acknowledgements
-Specia thanks to [CJWBW](https://github.com/CJWBW) who ported our project to [Replicate](https://replicate.ai/wonjongg/stylecarigan).
+❤️ Specially thanks to [CJWBW](https://github.com/CJWBW) who ported our project to [Replicate](https://replicate.ai/wonjongg/stylecarigan).

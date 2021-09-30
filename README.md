@@ -74,8 +74,7 @@ If you find this code useful, please consider citing:
 
 ## Pre-trained models
 
-🏷️ [StyleCariGAN](https://www.dropbox.com/s/ryc7v1ghsm54mr8/001000.pt?dl=0)
-
+🏷️ [StyleCariGAN](https://www.dropbox.com/s/ryc7v1ghsm54mr8/001000.pt?dl=0)  
 🏷️ [Caricature-StyleGAN](https://www.dropbox.com/s/8ycqr0sy8zah6h5/120000.pt?dl=0)
 
 ## Contact

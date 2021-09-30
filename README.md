@@ -1,9 +1,7 @@
 # StyleCariGAN: Caricature Generation via StyleGAN Feature Map Modulation
 ![License CC BY_NC](https://img.shields.io/badge/license-GNU_AGPv3-blue.svg?style=plastic) <a href="https://replicate.ai/wonjongg/stylecarigan"><img src="https://img.shields.io/static/v1?label=Replicate&message=Run it on Replicate&color=blue" height=18></a>
 
-<p align="center">
-   <img src="./assets/teaser.png" />
-</p>
+[![teaser](./assets/teaser.png)](https://youtu.be/kpHbGOlI-BU)
 
 This repository contains the official PyTorch implementation of the following paper:
 

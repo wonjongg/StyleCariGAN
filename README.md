@@ -53,6 +53,8 @@ It inverts latent codes from input photos and generates caricatures from latent 
 |![img1](./examples/samples/2.png)|![cari1](./examples/results/2/23.png)|
 |![img2](./examples/samples/3.jpg)|![cari2](./examples/results/3/19.png)|
 |![img3](./examples/samples/4.png)|![cari3](./examples/results/4/15.png)|
+|![img4](./examples/samples/5.png)|![cari4](./examples/results/5/52.png)|
+
 
 
 ## Citation

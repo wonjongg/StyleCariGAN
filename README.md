@@ -12,8 +12,11 @@
 🚀 >> [Fast-forward video](https://youtu.be/kpHbGOlI-BU)
 
 ## Overview
-
+<div align="center">
+  
 ![method](./assets/method.gif)
+
+</div>
 
 <details>
 <summary>Explanation</summary>

@@ -98,5 +98,6 @@ This software is being made available under the terms in the [LICENSE](LICENSE) 
 
 Any exemptions to these terms require a license from the Pohang University of Science and Technology.
 
-## Acknowledgements
+## Credits
+❤️ Our code is based on [the official StyleGAN2 implementation](https://github.com/NVlabs/stylegan2) and [rosinality's StyleGAN2-pytorch code](https://github.com/rosinality/stylegan2-pytorch):    
 ❤️ Specially thanks to [CJWBW](https://github.com/CJWBW) who ported our project to [Replicate](https://replicate.ai/wonjongg/stylecarigan).

@@ -87,8 +87,14 @@ If you find this code useful, please consider citing:
 
 ## Download pre-trained models
 
-🏷️ [StyleCariGAN](https://www.dropbox.com/s/ryc7v1ghsm54mr8/001000.pt?dl=0)  
-🏷️ [Caricature-StyleGAN](https://www.dropbox.com/s/8ycqr0sy8zah6h5/120000.pt?dl=0)
+🏷️ [StyleCariGAN](https://www.dropbox.com/s/ryc7v1ghsm54mr8/001000.pt?dl=0)
+🏷️ [Photo-StyleGAN (generator_ffhq.pt)](https://www.dropbox.com/s/dca0hltrnyi9lbk/generator_ffhq.pt?dl=0)
+🏷️ [Caricature-StyleGAN (generator_cari.pt)](https://www.dropbox.com/s/8ycqr0sy8zah6h5/generator_cari.pt?dl=0)
+🏷️ [Photo-Attribute-Classifier (photo_resnet.pth)](https://www.dropbox.com/s/rct4ikhkdyuwgdy/photo_resnet.pth?dl=0)
+🏷️ [Cari-Attribute-Classifier (cari_resnet.pth)](https://www.dropbox.com/s/v9f5h5p7ylndri7/cari_resnet.pth?dl=0)
+
+
+
 
 ## Contact
 📫 You can have contact with [wonjong@postech.ac.kr](mailto:wonjong@postech.ac.kr) or [ycjung@postech.ac.kr](mailto:ycjung@postech.ac.kr)

@@ -325,8 +325,13 @@ def train(args, generator, discriminator_photo, discriminator_cari,
 
         loss_dict["r1"] = r1_loss
 
-        requires_grad(generator.module.deformation_blocks_CP, True)
-        requires_grad(generator.module.deformation_blocks_PC, True)
+        if args.distributed:
+            requires_grad(generator.module.deformation_blocks_CP, True)
+            requires_grad(generator.module.deformation_blocks_PC, True)
+        else:
+            requires_grad(generator.deformation_blocks_CP, True)
+            requires_grad(generator.deformation_blocks_PC, True)
+
 
         requires_grad(discriminator_photo, False)
         requires_grad(discriminator_cari, False)

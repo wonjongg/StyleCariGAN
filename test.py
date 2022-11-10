@@ -1,3 +1,6 @@
+'''
+python test.py --ckpt checkpoint/StyleCariGAN/001000.pt --input_dir examples/samples --output_dir examples/results --invert_images
+'''
 import os 
 import math
 import numpy as np
@@ -24,6 +27,7 @@ def generate(
     wp = inversion_file['wp'].to(device).unsqueeze(0)
     noise = [n.to(device) for n in inversion_file['noise']]
     os.makedirs(args.current_output_dir, exist_ok=True)
+    indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     phi = [1-args.exaggeration_factor] * 4
     for i in indices:

@@ -249,6 +249,7 @@ class ModulatedConv2d(nn.Module):
         batch, in_channel, height, width = input.shape
 
         style = self.modulation(style).view(batch, 1, in_channel, 1, 1)
+        print(batch, in_channel)
         weight = self.scale * self.weight * style
 
         if self.demodulate:

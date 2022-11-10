@@ -165,8 +165,10 @@ class LayerSwapGenerator(nn.Module):
                 if styles[0].ndim < 3:
                     latent = styles[0].unsqueeze(1).repeat(1, inject_index, 1)
 
+
                 else:
                     latent = styles[0]
+
 
             elif len(styles) == self.n_latent:
                 styles = [style.unsqueeze(1) for style in styles]
@@ -202,7 +204,6 @@ class LayerSwapGenerator(nn.Module):
         if need_skip[0] and feature_loc[0] == 0:
             out = feature_out
             skip = feature_skip
-
         i = 1
         for j, (conv1, conv2, noise1, noise2, to_rgb) in enumerate(
                 zip(self.convs[::2], self.convs[1::2], noise[1::2],
